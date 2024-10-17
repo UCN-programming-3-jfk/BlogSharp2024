@@ -7,6 +7,7 @@ namespace BlogSharp2024.WebSite.ApiClient
     {
         IEnumerable<BlogPost> GetTenLatestBlogPosts();
         BlogPost GetBlogPostFromId(int id);
+        int AddBlogPost(BlogPost blogPost);
 
     }
 }

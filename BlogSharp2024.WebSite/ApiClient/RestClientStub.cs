@@ -1,4 +1,5 @@
 ﻿using BlogSharp2024.WebSite.ApiClient.DTO;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace BlogSharp2024.WebSite.ApiClient;
 
@@ -21,6 +22,15 @@ public class RestClientStub : IRestClient
         new BlogPost(){ Id = 14, Title = "C# for Beginners: Getting Started", Content="A complete beginner’s guide to C# programming.", CreationDate = DateTime.Now.AddDays(-18)},
         new BlogPost(){ Id = 15, Title = "Using Entity Framework Core", Content="An introduction to working with EF Core in C#.", CreationDate = DateTime.Now.AddDays(-11)}
     };
+
+    public int AddBlogPost(BlogPost blogPost)
+    {
+        var nextAvailableId = _posts.Max(post => post.Id) + 1;
+        blogPost.Id = nextAvailableId;
+        blogPost.CreationDate = DateTime.Now;
+        _posts.Add(blogPost);
+        return blogPost.Id;
+    }
 
     public BlogPost GetBlogPostFromId(int id)
     {

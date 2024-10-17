@@ -30,11 +30,12 @@ namespace BlogSharp2024.WebSite.Controllers
         // POST: BlogPostsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(BlogPost blogPost)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                //save to DAL
+                _restClient.AddBlogPost(blogPost);                return Redirect("/home/index");
             }
             catch
             {

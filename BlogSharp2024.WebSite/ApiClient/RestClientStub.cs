@@ -21,6 +21,14 @@ public class RestClientStub : IRestClient
         new BlogPost(){ Id = 14, Title = "C# for Beginners: Getting Started", Content="A complete beginner’s guide to C# programming.", CreationDate = DateTime.Now.AddDays(-18)},
         new BlogPost(){ Id = 15, Title = "Using Entity Framework Core", Content="An introduction to working with EF Core in C#.", CreationDate = DateTime.Now.AddDays(-11)}
     };
+
+    public BlogPost GetBlogPostFromId(int id)
+    {
+        return _posts.First(post => post.Id == id);
+        //TODO: change return type to BlogPost?
+        //return _posts.FirstOrDefault(post => post.Id == id);
+    }
+
     public IEnumerable<BlogPost> GetTenLatestBlogPosts()
     {
         return _posts.Take(10);

@@ -1,4 +1,5 @@
 ﻿using BlogSharp2024.WebSite.ApiClient;
+using BlogSharp2024.WebSite.ApiClient.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +18,7 @@ namespace BlogSharp2024.WebSite.Controllers
         // GET: BlogPostsController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(_restClient.GetBlogPostFromId(id));
         }
 
         // GET: BlogPostsController/Create

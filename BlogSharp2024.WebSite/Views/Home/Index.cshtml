@@ -1,9 +1,16 @@
-﻿@{
+﻿@model IEnumerable<BlogSharp2024.WebSite.ApiClient.DTO.BlogPost>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome to the BlogSharp universe</h1>
     <p>We are all about Blogging - become a content creator today!</p>
-    <br />CONTENT
+    <h3>Latest content:</h3>
+    @foreach (var item in Model)
+    {
+        <br />
+        @* @Html.DisplayFor(modelItem => item.CreationDate) *@
+        @Html.ActionLink(item.Title, "Details", new { /* id=item.PrimaryKey */ })
+    }
 </div>

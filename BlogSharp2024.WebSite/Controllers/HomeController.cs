@@ -8,6 +8,7 @@ namespace BlogSharp2024.WebSite.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IRestClient _client = new RestClientStub();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -16,8 +17,7 @@ namespace BlogSharp2024.WebSite.Controllers
 
         public IActionResult Index()
         {
-            IRestClient client = new 
-            return View(client.GetTenLatestBlogPosts());
+            return View(_client.GetTenLatestBlogPosts());
         }
 
         public IActionResult Privacy()

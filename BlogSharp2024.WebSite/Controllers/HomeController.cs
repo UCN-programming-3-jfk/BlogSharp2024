@@ -8,11 +8,11 @@ namespace BlogSharp2024.WebSite.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IRestClient _client = new RestClientStub();
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IRestClient _client;
+        public HomeController(ILogger<HomeController> logger, IRestClient client)
         {
             _logger = logger;
+            _client = client;
         }
 
         public IActionResult Index()

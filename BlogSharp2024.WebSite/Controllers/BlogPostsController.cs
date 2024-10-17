@@ -7,7 +7,15 @@ namespace BlogSharp2024.WebSite.Controllers
 {
     public class BlogPostsController : Controller
     {
-        private readonly IRestClient _restClient = new RestClientStub();
+        //REady for Dependency Injection
+        private readonly IRestClient _restClient;
+
+        public BlogPostsController(IRestClient restClient)
+        {
+            _restClient = restClient;
+        }
+
+
 
         // GET: BlogPostsController
         public ActionResult Index()

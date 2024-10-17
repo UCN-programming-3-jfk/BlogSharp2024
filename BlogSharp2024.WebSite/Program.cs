@@ -1,3 +1,5 @@
+using BlogSharp2024.WebSite.ApiClient;
+
 namespace BlogSharp2024.WebSite
 {
     public class Program
@@ -8,6 +10,21 @@ namespace BlogSharp2024.WebSite
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+           
+
+
+
+
+
+    //register dependencies
+    //so any controller asking for a 
+    //IRestClient receives a RestClientStub
+    builder.Services.AddSingleton<IRestClient, RestClientStub>();
+
+
+                
+
+
 
             var app = builder.Build();
 

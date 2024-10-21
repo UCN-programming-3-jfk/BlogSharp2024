@@ -16,9 +16,10 @@ DMA-CSD-S234 mini project for practicing coding a cohesive solution using
     - RESTclient stub
 - Module 12 - REST API
     - UI (fix background color)
+    - add validation attributes to viewmodel objects and server side validation
     - message area in HTML for @tempData messages
     - Add cookie based Authentication w. login/logout functionality
-        - see [Cookiebased authentication, w. GitHub link in footer](https://cookieauthentication.codesamples.dk/) for example code
+        - see [Cookiebased authentication, w. GitHub link in footer](https://cookieauthentication.codesamples.dk/) for sample code
     - Add RESTful api and a REST client  
-        - see [RestSharp Tester project](https://github.com/UCN-programming-3-jfk/RestSharpTester/) for code samples to learn from.
+        - see [RestSharp Tester project](https://github.com/UCN-programming-3-jfk/RestSharpTester/) for sample code 
 - Module 13 - Data Access Layer and database

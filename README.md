@@ -16,6 +16,7 @@ DMA-CSD-S234 mini project for practicing coding a cohesive solution using
     - RESTclient stub
 - Module 12 - REST API
     - UI (fix background color)
-    - Add cooke based Authentication
+    - message area in HTML for @tempData messages
+    - Add cookie based Authentication w. login/logout functionality
     - Add RESTful api and a REST client
 - Module 13 - Data Access Layer and database

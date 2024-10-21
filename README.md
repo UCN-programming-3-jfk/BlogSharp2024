@@ -1,12 +1,14 @@
 # BlogSharp 2024
 
-DMA-CSD-S234 mini project for practicing coding a cohesive solution using
+Mini project for practicing coding a cohesive solution using
  - Web Front-end (using ASP.NET MVC)
  - RestClient (using RestSharp)
  - RESTful service API (using ASP.NET Web API)
  - Data Access Layer (using Dapper)
  - Database - using SQL Server 
 
+We will achieve something close to this: 
+[BlogSharp](https://github.com/UCN-programming-3-jfk/BlogSharp/) (closest to "finished" version yet 😊)
 
 ## Module 11 - ASP.NET web page
 - front end with possibility of

@@ -5,7 +5,8 @@ public class BlogPost
     public required string Title { get; set; }
     public required string Content { get; set; }
     public DateTime CreationDate { get; set; }
+    public int AuthorId { get; set; }
 
     //TODO: author, email, id?
-   
+
 }

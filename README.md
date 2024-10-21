@@ -1,4 +1,4 @@
-#BlogSharp 2024
+# BlogSharp 2024
 
 DMA-CSD-S234 mini project for practicing coding a cohesive solution using
  - Web Front-end (using ASP.NET MVC)

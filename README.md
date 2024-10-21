@@ -9,5 +9,6 @@ DMA-CSD-S234 mini project for practicing coding a cohesive solution using
 
 ## Agenda
 - Module 11 - ASP.NET web front end with a restclient stub
-- Module 12 - Authentication and a RESTful api/rest client
+- Module 12
+ - Authentication and a RESTful api/rest client
 - Module 13 - Data Access Layer and database

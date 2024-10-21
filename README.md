@@ -8,6 +8,6 @@ DMA-CSD-S234 mini project for practicing coding a cohesive solution using
  - Database - using SQL Server 
 
 ## Agenda
-Module 11 - ASP.NET web front end with a restclient stub
-Module 12 - Authentication and a RESTful api/rest client
-Module 13 - Data Access Layer and database
+- Module 11 - ASP.NET web front end with a restclient stub
+- Module 12 - Authentication and a RESTful api/rest client
+- Module 13 - Data Access Layer and database

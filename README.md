@@ -18,5 +18,7 @@ DMA-CSD-S234 mini project for practicing coding a cohesive solution using
     - UI (fix background color)
     - message area in HTML for @tempData messages
     - Add cookie based Authentication w. login/logout functionality
-    - Add RESTful api and a REST client
+        - see [Cookiebased authentication, w. GitHub link in footer](https://cookieauthentication.codesamples.dk/) for example code
+    - Add RESTful api and a REST client  
+        - see [RestSharp Tester project](https://github.com/UCN-programming-3-jfk/RestSharpTester/) for code samples to learn from.
 - Module 13 - Data Access Layer and database

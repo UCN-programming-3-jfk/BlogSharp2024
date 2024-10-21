@@ -7,7 +7,7 @@ Mini project for practicing coding a cohesive solution using
  - Data Access Layer (using Dapper)
  - Database - using SQL Server 
 
-We will achieve something close to this: 
+We will achieve something related to this: 
 [BlogSharp](https://github.com/UCN-programming-3-jfk/BlogSharp/) (closest to "finished" version yet 😊)
 
 ## Module 11 - ASP.NET web page

@@ -37,6 +37,12 @@ public class AuthorsController : Controller
     {
         try
         {
+            if (!ModelState.IsValid) 
+            {
+                TempData["Message"] = $"Error creating your account. Try again later...";
+                return View();
+            }
+
             _client.AddAuthor(author);
             TempData["Message"] = $"Your account for the blog {author.BlogTitle} was created - welcome!";
             return RedirectToAction(nameof(Index), "Home");

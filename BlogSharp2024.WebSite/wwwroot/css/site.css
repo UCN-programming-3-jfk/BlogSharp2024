@@ -2,8 +2,10 @@ html {
   font-size: 14px;
  
 }
-* {
+body {
     background-color: bisque;
+}
+* {
     font-family: Verdana, Arial, sans-serif;
 }
 

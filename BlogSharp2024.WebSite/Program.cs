@@ -1,4 +1,5 @@
 using BlogSharp2024.WebSite.ApiClient;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace BlogSharp2024.WebSite
 {
@@ -16,6 +17,11 @@ namespace BlogSharp2024.WebSite
             //IRestClient receives a RestClientStub
             builder.Services.AddSingleton<IRestClient, RestClientStub>();
 
+            //1) 
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+
+                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme);
+
 
             var app = builder.Build();
 
@@ -32,6 +38,8 @@ namespace BlogSharp2024.WebSite
 
             app.UseRouting();
 
+            // 2)
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

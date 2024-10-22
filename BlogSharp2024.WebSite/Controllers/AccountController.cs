@@ -9,7 +9,6 @@ namespace BlogSharp2024.WebSite.Controllers;
 
 public class AccountController : Controller
 {
-
     IRestClient _client;
 
     public AccountController(IRestClient client)
@@ -28,67 +27,56 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> Login([FromForm] Author loginInfo, [FromQuery] string returnUrl)
     {
+        //tester hos API'et om login er gyldigt
         int userId = _client.TryLogin(loginInfo.Email, loginInfo.Password);
-        
+        //i givet fald laver vi cookie
         if (userId > 0) { await SignIn(loginInfo); }
-        if (string.IsNullOrEmpty(returnUrl)) { return RedirectToAction(); }
+        else { return View(); }
+        
+        if (!string.IsNullOrEmpty(returnUrl)) { return Redirect(returnUrl); }
+        
         return View();
     }
 
     //creates the authentication cookie with claims
     private async Task SignIn(Author loginInfo)
     {
+
+        //vi lagrer alle de informationer
+        //der ville være praktiske at have om brugeren i cookien
         var claims = new List<Claim>
     {
-        new Claim("id",user.Id.ToString()),
-        new Claim(ClaimTypes.Name, user.UserName),
-        new Claim(ClaimTypes.Email, user.Email),
-        new Claim(ClaimTypes.Role, user.Role.ToString()),
+        new Claim("id",loginInfo.Id.ToString()),
+        new Claim(ClaimTypes.Email,  loginInfo.Email),
+        new Claim(ClaimTypes.Role, "Author"),
     };
 
+        //gør klar til at gemme alle vore claims i en cookie
         var claimsIdentity = new ClaimsIdentity(
             claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-        var authProperties = new AuthenticationProperties
+        var authProperties = new AuthenticationProperties()
         {
-            #region often used options - to consider including in cookie
-            //AllowRefresh = <bool>,
-            // Refreshing the authentication session should be allowed.
-
-            //ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10),
-            // The time at which the authentication ticket expires. A 
-            // value set here overrides the ExpireTimeSpan option of 
-            // CookieAuthenticationOptions set with AddCookie.
-
-            //IsPersistent = true,
-            // Whether the authentication session is persisted across 
-            // multiple requests. When used with cookies, controls
-            // whether the cookie's lifetime is absolute (matching the
-            // lifetime of the authentication ticket) or session-based.
-
-            //IssuedUtc = <DateTimeOffset>,
-            // The time at which the authentication ticket was issued.
-
-            //RedirectUri = <string>
-            // The full path or absolute URI to be used as an http 
-            // redirect response value. 
-            #endregion
+            ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(1),
         };
+
+        //logger ind
 
         await HttpContext.SignInAsync(
             CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity),
             authProperties);
 
-        TempData["Message"] = $"You are logged in as {claimsIdentity.Name}";
+        //gemmer besked til brugeren til visning i _layouts.cshtml
+        TempData["Message"] = $"You are logged in as {loginInfo.Email}";
     }
 
-    ////deletes the authentication cooke
-    //public async Task<IActionResult> LogOut()
-    //{
-    //    await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-    //    TempData["Message"] = "You are now logged out.";
-    //    return RedirectToAction("Index", "");
-    //}
+    //deletes the authentication cooke
+    public async Task<IActionResult> LogOut()
+    {
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        TempData["Message"] = "You are now logged out.";
+        return RedirectToAction("Index", "");
+    }
 
     ////displayed if an area is off-limits, based on an authenticated user's claims
     //public IActionResult AccessDenied() => View();

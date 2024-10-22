@@ -1,10 +1,12 @@
 ﻿using BlogSharp2024.WebSite.ApiClient;
 using BlogSharp2024.WebSite.ApiClient.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogSharp2024.WebSite.Controllers
 {
+    
     public class BlogPostsController : Controller
     {
         //REady for Dependency Injection
@@ -30,14 +32,14 @@ namespace BlogSharp2024.WebSite.Controllers
         }
 
         // GET: BlogPostsController/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: BlogPostsController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [Authorize,HttpPost, ValidateAntiForgeryToken]
         public ActionResult Create(BlogPost blogPost)
         {
             try

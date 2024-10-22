@@ -23,7 +23,7 @@ public class RestClientStub : IRestClient
     };
 
     private static List<Author> _authors = new List<Author>() {
-       new Author(){Id=1, BlogTitle="Blogging about vegetables", Email="veggiehead@gmail.com" },
+       new Author(){Id=1, BlogTitle="Blogging about vegetables", Email="veggiehead@gmail.com", Password="1234" },
        new Author(){Id=2, BlogTitle="Best Python Coding Blog", Email="pycoder@gmail.com" },
        new Author(){Id=3, BlogTitle="The Dessert Blog", Email="Desserts@gmail.com" },
     };
@@ -56,4 +56,27 @@ public class RestClientStub : IRestClient
     {
         return _posts.Take(10);
     }
+
+    public int TryLogin(string email, string password)
+    {
+        var author = _authors.SingleOrDefault(author => author.Email == email && author.Password == password);
+
+        if(author == null) { return -1; }
+        return author.Id;
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,7 +15,8 @@ namespace BlogSharp2024.WebSite
             //register dependencies
             //so any controller asking for a 
             //IRestClient receives a RestClientStub
-            builder.Services.AddSingleton<IRestClient, RestClientStub>();
+            //builder.Services.AddSingleton<IRestClient, RestClientStub>();
+            builder.Services.AddSingleton<IRestClient>((_) => new RestApiClient("https://localhost:7243/api/v1"));
 
             //1) 
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

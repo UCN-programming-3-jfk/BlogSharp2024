@@ -21,7 +21,6 @@ namespace BlogSharp2024.WebAPI.Controllers
         }
 
 
-
         // GET api/<BlogPostsController>/5
         [HttpGet("{id}")]
         public string Get(int id)

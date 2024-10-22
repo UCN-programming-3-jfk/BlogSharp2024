@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogSharp2024.WebSite", "BlogSharp2024.WebSite\BlogSharp2024.WebSite.csproj", "{9670F053-6ACA-4721-9FAE-E56DB882122F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogSharp2024.WebSite", "BlogSharp2024.WebSite\BlogSharp2024.WebSite.csproj", "{9670F053-6ACA-4721-9FAE-E56DB882122F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogSharp2024.WebAPI", "BlogSharp2024.WebAPI\BlogSharp2024.WebAPI.csproj", "{0428BC9E-617C-4C21-BE07-13520C9224BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{9670F053-6ACA-4721-9FAE-E56DB882122F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9670F053-6ACA-4721-9FAE-E56DB882122F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9670F053-6ACA-4721-9FAE-E56DB882122F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0428BC9E-617C-4C21-BE07-13520C9224BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0428BC9E-617C-4C21-BE07-13520C9224BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0428BC9E-617C-4C21-BE07-13520C9224BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0428BC9E-617C-4C21-BE07-13520C9224BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

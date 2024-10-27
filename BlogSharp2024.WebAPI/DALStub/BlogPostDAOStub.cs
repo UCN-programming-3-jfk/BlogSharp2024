@@ -1,11 +1,11 @@
 ﻿
-namespace BlogSharp2024.WebAPI.DALStub
-{
-    public class BlogPostDAOStub : IBlogPostsDAO
-    {
-        #region interne data der emulerer database
+namespace BlogSharp2024.WebAPI.DALStub;
 
-        private static List<BlogPost> _posts = new List<BlogPost>() {
+public class BlogPostDAOStub : IBlogPostDAO
+{
+    #region interne data der emulerer database
+
+    private static List<BlogPost> _posts = new List<BlogPost>() {
         new BlogPost(){ Id = 1, Title = "Jordbærgrød FTW!", Content="Fed artikel med indhold.....", CreationDate = DateTime.Now.AddDays(-5)},
         new BlogPost(){ Id = 2, Title = "Exploring C# 12", Content="An in-depth look at the new features in C# 12.", CreationDate = DateTime.Now.AddDays(-4)},
         new BlogPost(){ Id = 3, Title = "REST APIs: The Basics", Content="Understanding the core concepts of RESTful APIs.", CreationDate = DateTime.Now.AddDays(-10)},
@@ -23,15 +23,34 @@ namespace BlogSharp2024.WebAPI.DALStub
         new BlogPost(){ Id = 15, Title = "Using Entity Framework Core", Content="An introduction to working with EF Core in C#.", CreationDate = DateTime.Now.AddDays(-11)}
     };
 
-        #endregion
-        public IEnumerable<BlogPost> GetAll()
-        {
-            return _posts;
-        }
-        public IEnumerable<BlogPost> Get10FirstBlogPosts()
-        {
-            return GetAll().Take(10);
-        }
+    #endregion
 
+    public IEnumerable<BlogPost> GetAll()
+    {
+        return _posts;
+    }
+
+    public IEnumerable<BlogPost> Get10FirstBlogPosts()
+    {
+        return GetAll().Take(10);
+    }
+
+    public BlogPost Get(int id)
+    {
+        return _posts.FirstOrDefault(post => post.Id == id);
+    }
+
+    public int Insert(BlogPost blogPost)
+    {
+        var newId = _posts.Max(post => post.Id) + 1;
+        blogPost.Id = newId;
+        blogPost.CreationDate = DateTime.Now;
+        _posts.Add(blogPost);
+        return newId;
+    }
+
+    public IEnumerable<BlogPost> GetTenLatestBlogPosts()
+    {
+        return _posts.OrderByDescending(post => post.CreationDate).Take(10);
     }
 }

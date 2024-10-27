@@ -35,7 +35,7 @@ public class AccountController : Controller
         
         if (!string.IsNullOrEmpty(returnUrl)) { return Redirect(returnUrl); }
         
-        return View();
+        return Redirect("/");
     }
 
     //creates the authentication cookie with claims
@@ -55,10 +55,7 @@ public class AccountController : Controller
         var claimsIdentity = new ClaimsIdentity(
             claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-        var authProperties = new AuthenticationProperties()
-        {
-            ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(1),
-        };
+        var authProperties = new AuthenticationProperties();
 
         //logger ind
 

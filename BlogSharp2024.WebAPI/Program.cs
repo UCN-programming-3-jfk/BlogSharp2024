@@ -19,7 +19,8 @@ namespace BlogSharp2024.WebAPI
             //registrer, at hvis en controller 
             //skal bruge en IBlogPostsDAO
             //så instantiér og giv den en BlogPostsDAOStub
-            builder.Services.AddSingleton<IBlogPostsDAO, BlogPostDAOStub>();
+            builder.Services.AddSingleton<IBlogPostDAO, BlogPostDAOStub>();
+            builder.Services.AddSingleton<IAuthorDAO, AuthorDAOStub>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

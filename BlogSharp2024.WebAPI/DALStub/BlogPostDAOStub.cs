@@ -1,4 +1,7 @@
 ﻿
+using BlogSharp2024.DAL.DAO;
+using BlogSharp2024.DAL.Model;
+
 namespace BlogSharp2024.WebAPI.DALStub;
 
 public class BlogPostDAOStub : IBlogPostDAO

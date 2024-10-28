@@ -1,4 +1,4 @@
-﻿namespace BlogSharp2024.WebAPI.DALStub;
+﻿namespace BlogSharp2024.DAL.DAO;
 public class Author
 {
     public int Id { get; set; }

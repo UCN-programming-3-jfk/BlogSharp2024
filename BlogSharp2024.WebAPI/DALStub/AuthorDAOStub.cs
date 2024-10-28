@@ -1,4 +1,6 @@
 ﻿
+using BlogSharp2024.DAL.DAO;
+
 namespace BlogSharp2024.WebAPI.DALStub;
 public class AuthorDAOStub : IAuthorDAO
 {

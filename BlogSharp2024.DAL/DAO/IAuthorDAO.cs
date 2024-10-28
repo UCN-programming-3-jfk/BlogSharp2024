@@ -1,4 +1,4 @@
-﻿namespace BlogSharp2024.WebAPI.DALStub;
+﻿namespace BlogSharp2024.DAL.DAO;
 public interface IAuthorDAO
 {
     int Insert(Author account);

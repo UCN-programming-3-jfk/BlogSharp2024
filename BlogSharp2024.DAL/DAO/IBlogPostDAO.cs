@@ -1,4 +1,6 @@
-﻿namespace BlogSharp2024.WebAPI.DALStub;
+﻿using BlogSharp2024.DAL.Model;
+
+namespace BlogSharp2024.DAL.DAO;
 public interface IBlogPostDAO
 {
     IEnumerable<BlogPost> GetAll();

@@ -20,8 +20,13 @@ namespace BlogSharp2024.WebAPI
             //registrer, at hvis en controller 
             //skal bruge en IBlogPostsDAO
             //så instantiér og giv den en BlogPostsDAOStub
-            builder.Services.AddSingleton<IBlogPostDAO, BlogPostDAOStub>();
-            builder.Services.AddSingleton<IAuthorDAO, AuthorDAOStub>();
+
+            //builder.Services.AddSingleton<IBlogPostDAO, BlogPostDAOStub>();
+            //builder.Services.AddSingleton<IAuthorDAO, AuthorDAOStub>();
+const string connectionString = "Data Source=.;Initial Catalog=BlogSharp;Integrated Security=True;Trust Server Certificate=True";
+builder.Services.AddSingleton<IBlogPostDAO>((_)=> new BlogPostDAO(connectionString));
+builder.Services.AddSingleton<IAuthorDAO>((_) => new AuthorDAO(connectionString));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

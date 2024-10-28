@@ -1,4 +1,5 @@
 ﻿using BlogSharp2024.DAL.Model;
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace BlogSharp2024.DAL.DAO
         public IEnumerable<BlogPost> GetTenLatestBlogPosts()
         {
             using var connection = CreateConnection();
-            return connection.Query<BlogPost>(query).ToList();
+            return connection.Query<BlogPost>(SELECT_TEN_QUERY).ToList();
 
         }
 

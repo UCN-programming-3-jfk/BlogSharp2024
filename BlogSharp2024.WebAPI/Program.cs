@@ -23,9 +23,13 @@ namespace BlogSharp2024.WebAPI
 
             //builder.Services.AddSingleton<IBlogPostDAO, BlogPostDAOStub>();
             //builder.Services.AddSingleton<IAuthorDAO, AuthorDAOStub>();
+
+
 const string connectionString = "Data Source=.;Initial Catalog=BlogSharp;Integrated Security=True;Trust Server Certificate=True";
 builder.Services.AddSingleton<IBlogPostDAO>((_)=> new BlogPostDAO(connectionString));
 builder.Services.AddSingleton<IAuthorDAO>((_) => new AuthorDAO(connectionString));
+
+
 
             var app = builder.Build();
 

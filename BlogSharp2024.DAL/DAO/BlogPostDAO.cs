@@ -9,6 +9,7 @@ namespace BlogSharp2024.DAL.DAO
 {
     public class BlogPostDAO : BaseDAO, IBlogPostDAO
     {
+            private const string SELECT_TEN_QUERY = "SELECT TOP(10) Id, Title, PostContent as [Content], FK_Author_Id as AuthorId FROM BlogPost ORDER BY CreationDate DESC";
         public BlogPostDAO(string connectionString) : base(connectionString)
         {
         }
@@ -24,7 +25,9 @@ namespace BlogSharp2024.DAL.DAO
 
         public IEnumerable<BlogPost> GetTenLatestBlogPosts()
         {
-            throw new NotImplementedException();
+            using var connection = CreateConnection();
+            return connection.Query<BlogPost>(query).ToList();
+
         }
 
         public int Insert(BlogPost blogPost)

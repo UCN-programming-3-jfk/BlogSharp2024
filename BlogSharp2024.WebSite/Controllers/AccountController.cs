@@ -31,7 +31,10 @@ public class AccountController : Controller
         int userId = _client.TryLogin(loginInfo.Email, loginInfo.Password);
         //i givet fald laver vi cookie
         if (userId > 0) { await SignIn(loginInfo); }
-        else { return View(); }
+        else {
+            TempData["Message"] = "Invalid login";
+            return View(); 
+        }
         
         if (!string.IsNullOrEmpty(returnUrl)) { return Redirect(returnUrl); }
         

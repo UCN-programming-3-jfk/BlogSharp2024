@@ -27,3 +27,9 @@ We will achieve something related to this:
     - see [RestSharp Tester project](https://github.com/UCN-programming-3-jfk/RestSharpTester/) for sample code 
 
 ## Module 13 - Data Access Layer and database
+- Data access layer (DAL) project
+    - Author and BlogPost tables in MS SQL server
+    - Dapper for ORM [Tutorial](https://dappertutorial.net/)
+    - BCrypt for safe password storage
+- Switch API project to use the DAL project
+    - move model objects and interfaces to DAL project
